@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+		<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+    <body>
+        <div class="home-background">
+            <div class="content">
+                <h1>Battletag: {{battletag}}</h1>
+                <img class="avatar-img" src="{{avatar_url}}"/>
+                <img class="tier-img" src="{{tier_img_url}}"/>
+                <h2>Top Five Heroes:</h2> 
+                {% for hero in top_five %}
+                    {{hero.name}}: {{"%.2f"|format(hero.hours_played)}} hours played<br/>
+                {% endfor %}
+                {{heroes}}
+
+            </div>
+		</div>
+    </body>
+</html>
