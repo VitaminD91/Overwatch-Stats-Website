@@ -1,3 +1,17 @@
+@font-face {
+	font-family: OverwatchNormal;
+	src: url('../fonts/big_noodle_titling.ttf');
+}
+
+@font-face {
+	font-family: OverwatchItalic;
+	src: url('../fonts/big_noodle_titling_oblique.ttf');
+}
+
+body{
+    font-family: OverwatchNormal !important
+}
+
 .home-background {
     background-image: url("/static/images/misc/home.jpg");
     width: 100%;
@@ -7,12 +21,32 @@
     background-size: cover; 
 }
 
+
 .content {
     background-color: white;
     border: 1px solid lightgrey;
     padding: 10px;
     width: 30%;
     margin: 0 auto;
+}
+
+.rating {
+    padding-right: 9px;
+    height: 50px;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    display: inline-block;
+    background-color: #f4f4f4;
+}
+
+.rating .rating-number {
+    font-size: 1.9em;
+    vertical-align: middle;
+    color: #9d6cd9;
+}
+
+.rating .tier-img {
+    height: 100%;
 }
 
 .avatar-img{

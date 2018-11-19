@@ -5,15 +5,20 @@
     <body>
         <div class="home-background">
             <div class="content">
-                <h1>Battletag: {{battletag}}</h1>
-                <img class="avatar-img" src="{{avatar_url}}"/>
-                <img class="tier-img" src="{{tier_img_url}}"/>
+                <h1>{{profile.battletag}}</h1>
+                {{profile.level}}
+                <img class="avatar-img" src="{{profile.avatar_url}}"/>
+                <div class="rating">
+                    <img class="tier-img" src="{{profile.tier_img_url}}"/>
+                    <span class="rating-number">{{stats.comp_rank}}</span>
+                </div>
                 <h2>Top Five Heroes:</h2> 
                 {% for hero in top_five %}
                     {{hero.name}}: {{"%.2f"|format(hero.hours_played)}} hours played<br/>
                 {% endfor %}
-                {{blob}}
             </div>
 		</div>
     </body>
 </html>
+
+  
