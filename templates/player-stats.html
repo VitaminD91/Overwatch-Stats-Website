@@ -4,13 +4,14 @@
 	</head>
     <body>
         <div class="home-background">
+            {% include 'nav.html' %}
             <div class="content">
-                <div class="profile">
+                <div class="player-profile">
                     <div class="avatar">
                         <img class="avatar-img" src="{{profile.avatar_url}}"/>
                     </div>
-                    <div class="profile-details">
-                        <h1>{{profile.battletag}}</h1>
+                    <div class="player-profile-details">
+                        <div class="battletag">{{profile.battletag}}<span class="battletag-number">#{{profile.battletag_number}}</span></div>
                         <div class="rating">
                             <img class="tier-img" src="{{profile.tier_img_url}}"/>
                             <span class="rating-number">{{stats.comp_rank}}</span>

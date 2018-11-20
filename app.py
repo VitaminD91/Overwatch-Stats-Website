@@ -18,8 +18,9 @@ class Stats:
         self.comp_rank = comp_rank
 
 class Profile:
-    def __init__(self, battletag, level, avatar_url, tier_img_url=""):
+    def __init__(self, battletag, battletag_number, level, avatar_url, tier_img_url=""):
         self.battletag = battletag
+        self.battletag_number = battletag_number
         self.level = level
         self.avatar_url = avatar_url
         self.tier_img_url = tier_img_url
@@ -61,13 +62,14 @@ def player_stats(battletag):
     avatar_url = stats['quickplay']['overall_stats']['avatar']
     tier_img_url = stats['competitive']['overall_stats']['tier_image']
 
-    player_profile = Profile(name, level, avatar_url, tier_img_url)
+    btag_tokens = name.split('#')
+    btag = btag_tokens[0]
+    btag_number = btag_tokens[1]
+
+    player_profile = Profile(btag, btag_number, level, avatar_url, tier_img_url)
 
     player_stats = Stats()
     player_stats.comp_rank = stats['competitive']['overall_stats']['comprank']
-
-    test = owapi.get_profile(battletag) 
-
 
     return render_template('player-stats.html', title=name, profile=player_profile, top_five=top_five, heroes=heroes, stats=player_stats)
 

@@ -9,7 +9,8 @@
 }
 
 body{
-    font-family: OverwatchNormal !important
+    font-family: OverwatchNormal !important;
+    margin: 0;
 }
 
 .home-background {
@@ -26,21 +27,30 @@ body{
     background-color: white;
     border: 1px solid lightgrey;
     padding: 10px;
-    width: 30%;
+    width: 50%;
     margin: 0 auto;
 }
 
-.profile{
+.battletag{
+    font-family: OverwatchItalic !important;
+    font-size: 3.2em;
+}
+
+.battletag-number{
+    font-size: 0.8em;
+    color: #6CBAD8;
+}
+
+.player-profile{
     display: flex;
     flex-direction: row;
 }
 
-.profile-details{
-    margin-left: 20px;
-}
-
-.user-name{
-    background-color: #919191
+.player-profile-details{
+    margin-left: 15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .avatar-img{
@@ -50,9 +60,12 @@ body{
 .rating {
     padding-right: 9px;
     height: 50px;
+    width: fit-content;
     border: 2px solid #919191;
     border-radius: 8px;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     background-color: #f4f4f4;
 }
 
@@ -66,3 +79,46 @@ body{
     height: 100%;
 }
 
+
+
+/* navbar */
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    background-color: white;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    margin: 15px auto;
+}
+
+.logo{
+
+}
+
+.logo img{
+    height: 60px;
+}
+
+.nav{
+    display: flex;
+    flex-grow: 2;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nav-item{
+    font-size: 1.5em;
+    font-family: OverwatchItalic !important;
+}
+
+.search{
+    display: inline-block;
+}
+
+.profile{
+    display: inline-block;
+}
