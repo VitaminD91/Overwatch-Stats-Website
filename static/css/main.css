@@ -30,20 +30,17 @@ body{
     margin: 0 auto;
 }
 
-.user-name{
-    background-color: #919191
+.profile{
+    display: flex;
+    flex-direction: row;
 }
 
-.level{
-    color: slategrey;
-    padding-left: 9px;
-    padding-right: 9px;
-    font-size: 2em;
-    width: 132px;
-    background-color:#f4f4f4;
-    border: 2px solid #919191;
-    text-align: center;
-    vertical-align: top;
+.profile-details{
+    margin-left: 20px;
+}
+
+.user-name{
+    background-color: #919191
 }
 
 .avatar-img{

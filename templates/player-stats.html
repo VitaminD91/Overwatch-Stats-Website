@@ -1,26 +1,72 @@
 <html>
 	<head>
 	{% include 'header.html' %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	</head>
     <body>
         <div class="home-background">
             <div class="content">
-                <h1>{{profile.battletag}}</h1>
-                <div class="level">
-                    {{profile.level}}
-                </div>
-                <img class="avatar-img" src="{{profile.avatar_url}}"/>
-                <div class="rating">
-                    <img class="tier-img" src="{{profile.tier_img_url}}"/>
-                    <span class="rating-number">{{stats.comp_rank}}</span>
+                <div class="profile">
+                    <div class="avatar">
+                        <img class="avatar-img" src="{{profile.avatar_url}}"/>
+                    </div>
+                    <div class="profile-details">
+                        <h1>{{profile.battletag}}</h1>
+                        <div class="rating">
+                            <img class="tier-img" src="{{profile.tier_img_url}}"/>
+                            <span class="rating-number">{{stats.comp_rank}}</span>
+                        </div>
+                    </div>
                 </div>
                 <h2>Top Five Heroes:</h2> 
-                {% for hero in top_five %}
-                    {{hero.name}}: {{"%.2f"|format(hero.hours_played)}} hours played<br/>
-                {% endfor %}
+                <canvas id="top-five-chart" width="300" height="200"></canvas>
             </div>
 		</div>
+        <script>    
+            var ctx = document.getElementById("top-five-chart").getContext("2d");
+            var topFiveChart = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: ["{{top_five[0].name}}", "{{top_five[1].name}}", "{{top_five[2].name}}", "{{top_five[3].name}}", "{{top_five[4].name}}"],
+                    datasets: [{
+                        label: 'Hours Played',
+                        data: [
+                            "{{top_five[0].hours_played}}", 
+                            "{{top_five[1].hours_played}}", 
+                            "{{top_five[2].hours_played}}",
+                            "{{top_five[3].hours_played}}",
+                            "{{top_five[4].hours_played}}" 
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: false
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
 
