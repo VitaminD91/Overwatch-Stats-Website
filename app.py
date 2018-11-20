@@ -48,8 +48,6 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('/'))
     
-        
-
 @app.route('/player/<battletag>')
 def player_stats(battletag):
     region = 'eu'
