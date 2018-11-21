@@ -3,7 +3,9 @@
         <img src="/static/images/misc/logo.png"/>
     </div>
     <div class="nav">
-        <div class="nav-item">Profile</div>
+        {% if logged_in %}
+            <div class="nav-item">Profile</div>
+        {% endif %}
         <div class="nav-item">Heroes</div>
         <div class="nav-item">About</div>
     </div>
@@ -13,7 +15,11 @@
             <button>S</button>
         </div>
         <div class="profile">
-            <a href="/login">sign in</a>
+            {% if logged_in %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Sign In</a>
+            {% endif %}
         </div>
     </div>
 </div>

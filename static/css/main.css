@@ -80,6 +80,56 @@ body{
 }
 
 
+/* Login */
+
+.login-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.login-content {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+
+.login-img img{
+    height: 500px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-form input{
+    font-family: OverwatchNormal;
+    font-size: 1.2em;
+    width: 180px;
+    margin-bottom: 5px;
+    
+}
+
+.login-button{
+    margin-top: 5px;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+}
+
+.login-button:hover{
+    background-color: black;
+    color: #f4f4f4;
+    cursor: pointer;
+}
+
 
 /* navbar */
 

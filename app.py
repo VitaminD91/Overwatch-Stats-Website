@@ -47,10 +47,11 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('username', None)
-    return redirect(url_for('/'))
+    return redirect('/')
     
 @app.route('/player/<battletag>')
 def player_stats(battletag):
+    logged_in = 'username' in session
     region = 'eu'
     blob = owapi.get_blob(battletag, region)
     stats = blob['stats']
@@ -71,7 +72,7 @@ def player_stats(battletag):
     player_stats = Stats()
     player_stats.comp_rank = stats['competitive']['overall_stats']['comprank']
 
-    return render_template('player-stats.html', title=name, profile=player_profile, top_five=top_five, heroes=heroes, stats=player_stats)
+    return render_template('player-stats.html', title=name, logged_in=logged_in, profile=player_profile, top_five=top_five, heroes=heroes, stats=player_stats)
 
 
 
