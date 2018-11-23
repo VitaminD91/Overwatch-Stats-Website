@@ -3,9 +3,6 @@
     {% include 'header.html' %}
     </head>
     <body>
-        {% if error != None %}
-            {{ error }}
-        {% endif %}
         <!--error handelling for login - no username or password or incorrect-->
         <div class="home-background">
             <div class="login-container">"
@@ -21,9 +18,16 @@
                             <div class="login-password">
                                  <input type="password" id="password" name="password" placeholder="password">
                             </div>
+                            <div class="login-error">
+                                {% if error != None %}
+                                    {{ error }}
+                                {% endif %}
+                            </div>
                             <input class="login-button" type="submit" value="Login">
+                            <div class="sign-up-link"><a href="/signup">No account? Sign up</a></div>
                         </form>
                     </div>
+                    
                 </div>
             </div>
         </div>

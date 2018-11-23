@@ -13,6 +13,11 @@ body{
     margin: 0;
 }
 
+h3{
+    margin-block-end: 15px;
+    margin-block-start: 15px;
+}
+
 .home-background {
     background-image: url("/static/images/misc/home.jpg");
     width: 100%;
@@ -79,6 +84,55 @@ body{
     height: 100%;
 }
 
+.overview{
+    font-size: 1.5em;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    background-color: #E8E8E8;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.game-stats{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    padding: 10px;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+}
+
+.medals{
+    flex-direction: column;
+    width: fit-content;
+    padding: 10px;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+}
+
+.gold{
+    color: #D4AF37;
+}
+
+.silver{
+    color: #C0C0C0;
+}
+
+.bronze{
+    color: #cd7f32;
+}
+
+.records{
+    flex-direction: column;
+    width: fit-content;
+    padding: 10px;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+}
+
 
 /* Login */
 
@@ -130,6 +184,69 @@ body{
     cursor: pointer;
 }
 
+.sign-up-link{
+    padding-left: 38px;
+}
+
+.sign-up-link a{
+    color: black;
+    text-decoration: none;
+}
+
+.sign-up-link a:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
+/* Sign Up  */
+
+.sign-up-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sign-up-content {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.sign-up-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40px;
+}
+
+.sign-up-form input{
+    font-family: OverwatchNormal;
+    font-size: 1.2em;
+    width: 180px;
+    margin-bottom: 8px;
+    
+}
+
+.sign-up-button{
+    margin-top: 5px;
+    border: 2px solid #919191;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+}
+
+.sign-up-button:hover{
+    background-color: black;
+    color: #f4f4f4;
+    cursor: pointer;
+}
+
+.sign-up-error{
+    color: red;
+}
+
 
 /* navbar */
 
@@ -165,10 +282,66 @@ body{
     font-family: OverwatchItalic !important;
 }
 
+.nav-item a{
+    color: black;
+    text-decoration: none;  
+}
+
+.nav-item a:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
 .search{
     display: inline-block;
 }
 
 .profile{
     display: inline-block;
+}
+
+/* Top Player*/ 
+
+.top-players-title{
+    margin: 0 auto;
+    width: 100px;
+    font-size: 2em;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.top-player{
+    display: flex;
+    border: 1px solid darkslategray;
+    background-color: lightgrey;
+    width: fit-content;
+    padding: 3px;
+    margin-left: 30%;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.top-player-img{
+    float: left;
+    width: 40px;
+}
+
+.top-player-rank{
+    float: right;
+    width: 50px;
+    padding-left:10px;
+    padding-top:10px;
+    padding-right:40px;
+}
+
+.top-player-name{
+    float: right;
+    width: 200px;
+    padding-top: 10px;
+}
+
+.top-player-rating{
+    width: 50px;
+    padding-top: 10px;
+    color: #9d6cd9
 }

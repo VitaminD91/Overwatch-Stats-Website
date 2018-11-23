@@ -1,0 +1,37 @@
+    <head>
+    {% include 'header.html' %}
+    </head>
+    <body>
+        <div class="home-background">
+            <div class="sign-up-container">"
+                <div class="sign-up-content">
+                    <div class="login-img">
+                        <img src="/static/images/misc/login-img.jpg"/>
+                    </div>
+                    <div class="sign-up-form">
+                        <form action= "" method="post">
+                            <div class="sign-in-username">
+                                <input type="text" id="username" name="username" placeholder="username" value="{{username}}" required>
+                            </div>
+                            <div class="sign-up-password">
+                                 <input type="password" id="password" name="password" placeholder="password" required>
+                            </div>
+                            <div class="sign-up-password-repeat">
+                                 <input type="password" id="password-repeat" name="password-repeat" placeholder="Verify Password" required>
+                            </div>
+                            <div class="sign-up-battletag">
+                                 <input type="text" id="battletag" name="battletag" placeholder="Battletag#0000 (Optional)">
+                            </div>
+                            <div class="sign-up-error">
+                                {% if error != None %}
+                                    {{ error }}
+                                {% endif %}
+                            </div>
+                            <input class="sign-up-button" type="submit" value="Confirm Sign Up">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

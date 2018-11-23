@@ -1,0 +1,25 @@
+<html>
+    <head>
+        {% include 'header.html' %}
+    </head>
+    <body>
+        <div class="home-background">
+            {% include 'nav.html' %}
+            <div class="content">
+                <h2>Search Players</h2>
+                <form method="GET">
+                    <input type='text' name='q'>
+                    <input type='submit'> 
+                </form>
+                {% if search_results != None %}
+                    {% for player in search_results %}
+                        <div class="search-result-player">
+                            <a href="/player/{{player.urlName}}">{{player.name}}</a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+            </div>
+        </div>
+    </body>
+</html>
