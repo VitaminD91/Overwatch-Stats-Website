@@ -14,10 +14,10 @@
                                 <input type="text" id="username" name="username" placeholder="username" value="{{username}}" required>
                             </div>
                             <div class="sign-up-password">
-                                 <input type="password" id="password" name="password" placeholder="password" required>
+                                 <input type="password" input pattern=".{6,}" id="password" name="password" placeholder="password" required>
                             </div>
                             <div class="sign-up-password-repeat">
-                                 <input type="password" id="password-repeat" name="password-repeat" placeholder="Verify Password" required>
+                                 <input type="password" input pattern=".{6,}" id="password-repeat" name="password-repeat" placeholder="Verify Password" required>
                             </div>
                             <div class="sign-up-battletag">
                                  <input type="text" id="battletag" name="battletag" placeholder="Battletag#0000 (Optional)">

@@ -13,9 +13,10 @@ def get_profile(battletag):
     if response.status_code != 200:
         return None
     profile = json.loads(response.content)
-    print(profile)
-    if profile[0] == None:
+    if profile == None:
         return None
+    if len(profile) == 0:
+        return None 
     return profile[0]
     
 def search_players(query):

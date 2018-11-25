@@ -34,6 +34,16 @@ def get_user(username):
     user = c.fetchone()
     conn.close()
     return user
+
+def set_battletag(battletag, username):
+    conn = sqlite3.connect(dbname)
+    conn.row_factory = sqlite3.Row
+    c = conn.cursor()
+
+    c.execute("UPDATE user SET battletag='?' WHERE username ='?'", [battletag, username])
+    print(battletag, username)
+    conn.commit()
+    conn.close()
     
 
     

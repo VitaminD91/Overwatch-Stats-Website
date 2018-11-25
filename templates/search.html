@@ -14,7 +14,12 @@
                 {% if search_results != None %}
                     {% for player in search_results %}
                         <div class="search-result-player">
-                            <a href="/player/{{player.urlName}}">{{player.name}}</a>
+                            <div class="search-result-avatar">
+                                <img src="{{player.portrait}}" onerror="this.src='/static/images/misc/fallback-img.jpg'"/>
+                            </div>
+                            <div class="search-result-name">
+                                <a href="/player/{{player.urlName}}">{{player.name}}</a>
+                            </div>
                         </div>
                     {% endfor %}
                 {% endif %}

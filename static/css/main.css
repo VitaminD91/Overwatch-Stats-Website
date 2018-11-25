@@ -27,10 +27,73 @@ h3{
     background-size: cover; 
 }
 
+.home-content{
+    background-color: white;
+    border: 1px solid #43484c;
+    width: fit-content;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.home-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-title{
+    background-color: black;
+    color: #f99e1a;
+    font-size: 3em !important;
+    text-align: center;
+    width: 1500;
+    font-size: 1.8em;
+    padding-top: 20;
+    padding-bottom: 20;
+}
+
+.home-page-image{
+    position: relative;
+}
+
+.home-page-image img{
+    width: 1500;
+    margin-bottom: 20;
+}
+
+.home-page-image .search-button{
+    position: absolute;
+    top:65%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: black;
+    font-size: 20px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.home-page-image .search-button a{
+    font-family: OverwatchNormal;
+    text-decoration: None;
+    color: #f99e1a;
+}
+
+.home-page-image .search-button:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+
 
 .content {
     background-color: white;
-    border: 1px solid lightgrey;
+    border: 1px solid #43484c;
     padding: 10px;
     width: 50%;
     margin: 0 auto;
@@ -66,7 +129,7 @@ h3{
     padding-right: 9px;
     height: 50px;
     width: fit-content;
-    border: 2px solid #919191;
+    border: 2px solid #43484c;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
@@ -84,32 +147,48 @@ h3{
     height: 100%;
 }
 
+.overview-title{
+    font-size: 1.3em;
+    margin-top: 20px;
+    padding-left:45%
+}
+
 .overview{
     font-size: 1.5em;
-    border: 2px solid #919191;
+    border: 2px solid #000000;
     border-radius: 8px;
-    background-color: #E8E8E8;
-    padding-left: 15px;
-    padding-bottom: 15px;
+    background-color: #43484c;
+    margin-top: 10px;
+    margin-left: 95px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
 }
 
 .game-stats{
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    padding: 10px;
-    border: 2px solid #919191;
+    align-items: center;
+    width: 250px;
+    height: 180px;
+    border: 2px solid #000000;
     border-radius: 8px;
     background-color: #f4f4f4;
+    margin: 3px;
 }
 
 .medals{
+    display: flex;
     flex-direction: column;
-    width: fit-content;
-    padding: 10px;
-    border: 2px solid #919191;
+    align-items: center;
+    width: 250px;
+    height: 180px;
+    border: 2px solid #000000;
     border-radius: 8px;
     background-color: #f4f4f4;
+    margin: 3px;
+    margin-top: 17px;
 }
 
 .gold{
@@ -117,20 +196,29 @@ h3{
 }
 
 .silver{
-    color: #C0C0C0;
+    color: 	#BEBEBE;
 }
 
 .bronze{
     color: #cd7f32;
 }
 
-.records{
+.stats-and-medals{
+    display: flex;
     flex-direction: column;
-    width: fit-content;
-    padding: 10px;
-    border: 2px solid #919191;
+}
+
+.records{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 334px;
+    border: 2px solid #000000;
     border-radius: 8px;
     background-color: #f4f4f4;
+    margin: 3px;
+    padding-top: 50px;
 }
 
 
@@ -145,7 +233,7 @@ h3{
 
 .login-content {
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #000000;
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -173,7 +261,7 @@ h3{
 
 .login-button{
     margin-top: 5px;
-    border: 2px solid #919191;
+    border: 2px solid #43484c;
     border-radius: 8px;
     background-color: #f4f4f4;
 }
@@ -194,7 +282,7 @@ h3{
 }
 
 .sign-up-link a:hover{
-    color: orangered;
+    color: #f99e1a;
     cursor: pointer;
 }
 
@@ -232,7 +320,7 @@ h3{
 
 .sign-up-button{
     margin-top: 5px;
-    border: 2px solid #919191;
+    border: 2px solid #43484c;
     border-radius: 8px;
     background-color: #f4f4f4;
 }
@@ -257,7 +345,7 @@ h3{
     align-items: center;
     width: 50%;
     background-color: white;
-    border: 1px solid lightgrey;
+    border: 1px solid #43484c;
     padding: 10px;
     margin: 15px auto;
 }
@@ -288,7 +376,7 @@ h3{
 }
 
 .nav-item a:hover{
-    color: orangered;
+    color: #f99e1a;
     cursor: pointer;
 }
 
@@ -312,7 +400,7 @@ h3{
 
 .top-player{
     display: flex;
-    border: 1px solid darkslategray;
+    border: 1px solid #43484c;
     background-color: lightgrey;
     width: fit-content;
     padding: 3px;
@@ -344,4 +432,22 @@ h3{
     width: 50px;
     padding-top: 10px;
     color: #9d6cd9
+}
+
+/* Search */
+
+.search-result-player{
+    border: 1px solid #43484c;
+    width: 300px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    font-size: 1.2em;
+    margin: 3px;
+}
+
+.search-result-name{
+    padding-top: 50px;
+    padding-left: 25px;
+    text-decoration: none;
+    color: black;
 }

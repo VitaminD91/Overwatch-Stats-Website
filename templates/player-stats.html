@@ -21,6 +21,10 @@
                                 <img class="tier-img" src="{{profile.tier_img_url}}"/>
                                 <span class="rating-number">{{stats.comp_rank}}</span>
                             </div>
+                            <form action="/set-battletag", method="POST">
+                                <input type="hidden" id="battletag" name="battletag" value="{{battletag}}">
+                                <button name="profile-set-button" type="submit">Make This My Profile</button>
+                            </form>
                         </div>
                     </div>
                     <h2>Top Five Heroes:</h2> 
@@ -28,33 +32,37 @@
                         <canvas id="top-five-chart" width="200" height="50"></canvas>
                     </div>
                     
-                    <div class="overview">
+                    <div class="overview-title">
                         <h2>Overview</h2>
-                        <h3>Game Stats</h3>
-                        <div class="game-stats">
-                            <div class="games_won">
-                                Games won: {{player_overview.games_won}}
+                    </div>
+                    <div class="overview">
+                        <div class="stats-and-medals">
+                            <div class="game-stats">
+                                <h3>Game Stats</h3>
+                                <div class="games_won">
+                                    Games won: {{player_overview.games_won}}
+                                </div>
+                                <div class="kpd">
+                                    Eliminations Per Death: {{player_overview.kpd}}
+                                </div>
                             </div>
-                            <div class="kpd">
-                                Eliminations Per Death: {{player_overview.kpd}}
-                            </div>
-                        </div>
-
-                        <h3>Medals</h3>
-                        <div class="medals">
-                            <div class="gold">
-                                Gold medals: {{player_overview.medals_gold}}
-                            </div>
-                            <div class="silver">
-                                Silver medals: {{player_overview.medals_silver}}
-                            </div>
-                            <div class="bronze">
-                                Bronze medals: {{player_overview.medals_bronze}}
+                            
+                            <div class="medals">
+                                <h3>Medals</h3>
+                                <div class="gold">
+                                    Gold medals: {{player_overview.medals_gold}}
+                                </div>
+                                <div class="silver">
+                                    Silver medals: {{player_overview.medals_silver}}
+                                </div>
+                                <div class="bronze">
+                                    Bronze medals: {{player_overview.medals_bronze}}
+                                </div>
                             </div>
                         </div>
                         
-                        <h3>Records - Most in Game</h3>
                         <div class="records">
+                            <h3>Records - Most in Game</h3>
                             <div class="final_blow">
                                 Final Blows: {{player_record.final_blows}}
                             </div>
