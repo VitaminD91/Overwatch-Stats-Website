@@ -17,8 +17,13 @@
                             <div class="search-result-avatar">
                                 <img src="{{player.portrait}}" onerror="this.src='/static/images/misc/fallback-img.jpg'"/>
                             </div>
-                            <div class="search-result-name">
-                                <a href="/player/{{player.urlName}}">{{player.name}}</a>
+                            <div class="name-and-level">
+                                <div class="search-result-name">
+                                    <a href="/player/{{player.urlName}}">{{player.name}}</a>
+                                </div>
+                                <div class="search-player-level">
+                                    Level {{player.level}}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}

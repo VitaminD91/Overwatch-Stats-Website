@@ -40,8 +40,7 @@ def set_battletag(battletag, username):
     conn.row_factory = sqlite3.Row
     c = conn.cursor()
 
-    c.execute("UPDATE user SET battletag='?' WHERE username ='?'", [battletag, username])
-    print(battletag, username)
+    c.execute("UPDATE user SET battletag=? WHERE username =?", [battletag, username])
     conn.commit()
     conn.close()
     

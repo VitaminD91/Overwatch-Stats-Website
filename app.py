@@ -23,6 +23,7 @@ class Profile:
     def __init__(self, battletag, battletag_number, level, avatar_url, tier_img_url=""):
         self.battletag = battletag
         self.battletag_number = battletag_number
+        self.full_battletag = battletag + "-" + battletag_number
         self.level = level
         self.avatar_url = avatar_url
         self.tier_img_url = tier_img_url
@@ -54,11 +55,8 @@ class Records:
 
 @app.route('/')
 def home():
-    query = request.args.get('q')
-    if query == None:
-        return render_template('home.html')
-    search_results = owapi.search_players(query)
-    return render_template('home.html', search_results=search_results)
+    logged_in = 'username' in session
+    return render_template('home.html', logged_in=logged_in)
 
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -72,6 +70,8 @@ def login():
         if hashedpassword == user['password']:
             session['username'] = username
             print(f'setting user to {username}')
+            battletag = user['battletag']
+            session['battletag'] = battletag
             return redirect('/')
         else:
             return render_template('login.html', error='Incorrect username and/or password')
@@ -91,6 +91,7 @@ def sign_up():
         password = request.form['password']
         password_repeat = request.form['password-repeat']
         battletag = request.form['battletag']
+        battletag = battletag.replace("#", "-")
         existing_user = owdatabase.get_user(username)
         if existing_user == None:
             if password == password_repeat:
@@ -141,6 +142,13 @@ def player_stats(battletag):
 
     player_profile = Profile(btag, btag_number, level, avatar_url, tier_img_url)
 
+    username = session['username']
+    database_user = owdatabase.get_user(username)
+    database_battletag = database_user['battletag']
+    profile_battletag = player_profile.full_battletag
+    database_battletag == profile_battletag
+    own_profile = database_battletag == profile_battletag
+
     player_stats = Stats()
     player_stats.comp_rank = stats['competitive']['overall_stats']['comprank']
     
@@ -164,23 +172,23 @@ def player_stats(battletag):
 
     player_record = Records(final_blows, eliminations, assists, obj_kills, environmental, solo_kills, all_damage, hero_damage, healing)
 
-
-
     return render_template('player-stats.html', title=name, logged_in=logged_in, profile=player_profile, top_five=top_five, player_overview=player_overview,
-    player_record=player_record, heroes=heroes, stats=player_stats)
+    player_record=player_record, heroes=heroes, stats=player_stats, own_profile=own_profile)
 
 @app.route('/search')
 def search():
+    logged_in = 'username' in session
     query = request.args.get('q')
     if query == None:
-        return render_template('search.html')
+        return render_template('search.html', logged_in=logged_in)
     search_results = owapi.search_players(query)
-    return render_template('search.html', search_results=search_results)
+    return render_template('search.html', search_results=search_results, logged_in=logged_in)
         
 @app.route('/top-players')
 def top_players():
     top_players = owapi.get_top_players()
-    return render_template('top-players.html', top_players=top_players)
+    logged_in = 'username' in session
+    return render_template('top-players.html', top_players=top_players, logged_in=logged_in)
     
 
 def get_top_five_heroes(heroes):
@@ -195,12 +203,16 @@ def get_top_five_heroes(heroes):
     return top_five
 
 @app.route('/set-battletag', methods=['GET', 'POST'])
-def set_battletag(battletag):
+def set_battletag():
     if 'username' not in session:
         abort(400)
     else:
-        owdatabase.set_battletag(battletag)
-        return render_template(url_for('player_stats', battletag=battletag))
+        battletag=request.form['battletag']
+        username = session['username']
+        print("battle tag is: " + battletag)
+        owdatabase.set_battletag(battletag, username)
+        session['battletag'] = battletag
+        return redirect(url_for('player_stats', battletag=battletag))
 
 @app.errorhandler(404)
 def page_not_found(error):

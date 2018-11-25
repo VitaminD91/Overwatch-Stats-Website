@@ -17,14 +17,24 @@
                         </div>
                         <div class="player-profile-details">
                             <div class="battletag">{{profile.battletag}}<span class="battletag-number">#{{profile.battletag_number}}</span></div>
-                            <div class="rating">
-                                <img class="tier-img" src="{{profile.tier_img_url}}"/>
-                                <span class="rating-number">{{stats.comp_rank}}</span>
+                            <div class="rating-and-ownership">
+                                <div class="rating">
+                                    <img class="tier-img" src="{{profile.tier_img_url}}"/>
+                                    <span class="rating-number">{{stats.comp_rank}}</span>
+                                </div>
+                                {% if own_profile %}
+                                    <div class="profile-owned">
+                                        Your Profile
+                                    </div>
+                                {% else %}
+                                    <div class="set-profile">
+                                        <form action="/set-battletag", method="POST">
+                                            <input type="hidden" id="battletag" name="battletag" value="{{profile.full_battletag}}">
+                                            <button class="button" name="profile-set-button" type="submit">Make This My Profile</button>
+                                        </form>
+                                    </div>
+                                {% endif %}
                             </div>
-                            <form action="/set-battletag", method="POST">
-                                <input type="hidden" id="battletag" name="battletag" value="{{battletag}}">
-                                <button name="profile-set-button" type="submit">Make This My Profile</button>
-                            </form>
                         </div>
                     </div>
                     <h2>Top Five Heroes:</h2> 
