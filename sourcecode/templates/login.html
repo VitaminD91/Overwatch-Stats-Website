@@ -1,0 +1,35 @@
+<html>
+    <head>
+    {% include 'header.html' %}
+    </head>
+    <body>
+        <!--error handelling for login - no username or password or incorrect-->
+        <div class="home-background">
+            <div class="login-container">"
+                <div class="login-content">
+                    <div class="login-img">
+                        <img src="/static/images/misc/login-img.jpg"/>
+                    </div>
+                    <div class="login-form">
+                        <form action= "" method="post">
+                            <div class="login-username">
+                                <input type="text" id="username" name="username" placeholder="username">
+                            </div>
+                            <div class="login-password">
+                                 <input type="password" input pattern=".{6,}" id="password" name="password" placeholder="password">
+                            </div>
+                            <div class="login-error">
+                                {% if error != None %}
+                                    {{ error }}
+                                {% endif %}
+                            </div>
+                            <input class="login-button" type="submit" value="Login">
+                            <div class="sign-up-link"><a href="/signup">No account? Sign up</a></div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

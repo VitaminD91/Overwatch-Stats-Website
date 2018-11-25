@@ -1,0 +1,31 @@
+<html>
+    <head>
+        {% include 'header.html' %}
+    </head>
+    <body>
+        <div class="home-background">
+            {% include 'nav.html' %}
+            <div class="content">
+                <div class="top-players-title">
+                    Top Players
+                </div>
+                {% for player in top_players %}
+                    <div class="top-player">
+                        <div class="top-player-avatar">
+                            <img height=40 src="{{player.avatar}}"/>
+                        </div>
+                        <div class="top-player-rank">
+                            {{player.rank}}
+                        </div>
+                        <div class="top-player-name">
+                            {{player.name}}
+                        </div>
+                        <div class="top-player-rating">
+                            {{player.rating}}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
