@@ -20,7 +20,7 @@ def create_user(username, password, battletag=None):
     conn = sqlite3.connect(dbname)
     c = conn.cursor()
 
-    c.execute(f"INSERT INTO user VALUES (?,?,?)", [username, password, battletag])
+    c.execute("INSERT INTO user VALUES (?,?,?)", [username, password, battletag])
     conn.commit()
     conn.close()
 

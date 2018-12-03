@@ -74,7 +74,7 @@ def login():
         hashedpassword = h.hexdigest()
         if hashedpassword == user['password']:
             session['username'] = username
-            print(f'setting user to {username}')
+            print('setting user to' + {username})
             battletag = user['battletag']
             session['battletag'] = battletag
             return redirect('/')
