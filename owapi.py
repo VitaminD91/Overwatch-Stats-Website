@@ -21,7 +21,7 @@ def get_profile(battletag):
     
 def search_players(query):
     encoded_query = query.replace("#", "%23")
-    response = requests.get("https://playoverwatch.com/en-gb/search/account-by-name/" + {encoded_query})
+    response = requests.get("https://playoverwatch.com/en-gb/search/account-by-name/" + str({encoded_query}))
     if response.status_code != 200:
         return None
     search_result = json.loads(response.content)
