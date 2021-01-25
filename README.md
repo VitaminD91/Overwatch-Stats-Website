@@ -6,3 +6,4 @@ The web application which I chose to create was a stat tracking site for the gam
 
 The site itself contains a search page, a fully functional sign up & log-in, a profile page to view your own stats and a top players page which shows a list of the current top 100 players by rating. 
 
+![alt text](https://github.com/VitaminD91/Overwatch-Stats-Website/blob/master/github-OW.jpg?raw=true)
